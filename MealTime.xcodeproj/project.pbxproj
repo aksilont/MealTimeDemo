@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		7A9ACAAD26621C7B00991E8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ACAAC26621C7B00991E8E /* AppDelegate.swift */; };
 		7A9ACAAF26621C7B00991E8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ACAAE26621C7B00991E8E /* SceneDelegate.swift */; };
-		7A9ACAB126621C7B00991E8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ACAB026621C7B00991E8E /* ViewController.swift */; };
-		7A9ACAB426621C7B00991E8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A9ACAB226621C7B00991E8E /* Main.storyboard */; };
+		7A9ACAB126621C7B00991E8E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ACAB026621C7B00991E8E /* MainViewController.swift */; };
 		7A9ACAB626621C7B00991E8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A9ACAB526621C7B00991E8E /* Assets.xcassets */; };
 		7A9ACAB926621C7B00991E8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A9ACAB726621C7B00991E8E /* LaunchScreen.storyboard */; };
+		7A9ACAC6266220C100991E8E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ACAC5266220C100991E8E /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7A9ACAA926621C7A00991E8E /* MealTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9ACAAC26621C7B00991E8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A9ACAAE26621C7B00991E8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7A9ACAB026621C7B00991E8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7A9ACAB326621C7B00991E8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7A9ACAB026621C7B00991E8E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7A9ACAB526621C7B00991E8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A9ACAB826621C7B00991E8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A9ACABA26621C7B00991E8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A9ACAC5266220C100991E8E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,47 @@
 		7A9ACAAB26621C7A00991E8E /* MealTime */ = {
 			isa = PBXGroup;
 			children = (
-				7A9ACAAC26621C7B00991E8E /* AppDelegate.swift */,
-				7A9ACAAE26621C7B00991E8E /* SceneDelegate.swift */,
-				7A9ACAB026621C7B00991E8E /* ViewController.swift */,
-				7A9ACAB226621C7B00991E8E /* Main.storyboard */,
-				7A9ACAB526621C7B00991E8E /* Assets.xcassets */,
-				7A9ACAB726621C7B00991E8E /* LaunchScreen.storyboard */,
-				7A9ACABA26621C7B00991E8E /* Info.plist */,
+				7A9ACAC126621D2E00991E8E /* App */,
+				7A9ACAC226621D3200991E8E /* Resources */,
+				7A9ACAC326621D3E00991E8E /* Environments */,
 			);
 			path = MealTime;
+			sourceTree = "<group>";
+		};
+		7A9ACAC126621D2E00991E8E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7A9ACAAC26621C7B00991E8E /* AppDelegate.swift */,
+				7A9ACAAE26621C7B00991E8E /* SceneDelegate.swift */,
+				7A9ACAC426621D8800991E8E /* Flow */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7A9ACAC226621D3200991E8E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7A9ACAB726621C7B00991E8E /* LaunchScreen.storyboard */,
+				7A9ACAB526621C7B00991E8E /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7A9ACAC326621D3E00991E8E /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				7A9ACABA26621C7B00991E8E /* Info.plist */,
+			);
+			path = Environments;
+			sourceTree = "<group>";
+		};
+		7A9ACAC426621D8800991E8E /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				7A9ACAC5266220C100991E8E /* MainView.swift */,
+				7A9ACAB026621C7B00991E8E /* MainViewController.swift */,
+			);
+			path = Flow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +106,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A9ACABD26621C7B00991E8E /* Build configuration list for PBXNativeTarget "MealTime" */;
 			buildPhases = (
+				7A9ACAC026621CBC00991E8E /* Swift Lint */,
 				7A9ACAA526621C7A00991E8E /* Sources */,
 				7A9ACAA626621C7A00991E8E /* Frameworks */,
 				7A9ACAA726621C7A00991E8E /* Resources */,
@@ -126,18 +159,39 @@
 			files = (
 				7A9ACAB926621C7B00991E8E /* LaunchScreen.storyboard in Resources */,
 				7A9ACAB626621C7B00991E8E /* Assets.xcassets in Resources */,
-				7A9ACAB426621C7B00991E8E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A9ACAC026621CBC00991E8E /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7A9ACAA526621C7A00991E8E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A9ACAB126621C7B00991E8E /* ViewController.swift in Sources */,
+				7A9ACAB126621C7B00991E8E /* MainViewController.swift in Sources */,
+				7A9ACAC6266220C100991E8E /* MainView.swift in Sources */,
 				7A9ACAAD26621C7B00991E8E /* AppDelegate.swift in Sources */,
 				7A9ACAAF26621C7B00991E8E /* SceneDelegate.swift in Sources */,
 			);
@@ -146,14 +200,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7A9ACAB226621C7B00991E8E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7A9ACAB326621C7B00991E8E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7A9ACAB726621C7B00991E8E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -288,7 +334,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LA6FA5G5XC;
-				INFOPLIST_FILE = MealTime/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MealTime/Environments/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +342,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aksilont.MealTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,7 +353,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LA6FA5G5XC;
-				INFOPLIST_FILE = MealTime/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MealTime/Environments/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +361,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aksilont.MealTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

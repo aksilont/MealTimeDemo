@@ -25,6 +25,7 @@ class MainViewController: UIViewController {
     }
     
     private func setupUI() {
+        title = "Meal time"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
                                                             action: #selector(addNewTime))

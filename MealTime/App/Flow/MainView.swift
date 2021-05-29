@@ -9,6 +9,13 @@ import UIKit
 
 class MainView: UIView {
     
+    lazy var topImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "meal")
+        return imageView
+    }()
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -25,5 +32,16 @@ class MainView: UIView {
     
     private func setupUI() {
         backgroundColor = .white
+        addSubview(topImageView)
+        setupConstraints()
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            topImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0.0),
+            topImageView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 0.0),
+            topImageView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: 0.0),
+            topImageView.heightAnchor.constraint(equalToConstant: 150.0)
+        ])
     }
 }

@@ -9,17 +9,29 @@ import UIKit
 
 class MainView: UIView {
     
-    lazy var topImageView: UIImageView = {
+    weak var delegate: (UITableViewDelegate & UITableViewDataSource)?
+    
+    lazy private var topImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "meal")
         return imageView
     }()
     
+    lazy private var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.delegate = delegate
+        tableView.dataSource = delegate
+        return tableView
+    }()
+    
     // MARK: - Init
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, delegate: (UITableViewDelegate & UITableViewDataSource)?) {
         super.init(frame: frame)
+        self.delegate = delegate
         setupUI()
     }
     
@@ -30,9 +42,14 @@ class MainView: UIView {
     
     // MARK: - UI
     
+    func reloadData() {
+        tableView.reloadData()
+    }
+    
     private func setupUI() {
         backgroundColor = .white
         addSubview(topImageView)
+        addSubview(tableView)
         setupConstraints()
     }
     
@@ -41,7 +58,13 @@ class MainView: UIView {
             topImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0.0),
             topImageView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 0.0),
             topImageView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: 0.0),
-            topImageView.heightAnchor.constraint(equalToConstant: 150.0)
+            topImageView.heightAnchor.constraint(equalToConstant: 150.0),
+            
+            tableView.topAnchor.constraint(equalTo: topImageView.bottomAnchor, constant: 0.0),
+            tableView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 0.0),
+            tableView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: 0.0),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0.0)
         ])
     }
+    
 }

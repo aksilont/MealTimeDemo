@@ -114,4 +114,22 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        guard let mealToDelete = person.meals?[indexPath.row] as? Meal, editingStyle == .delete else { return }
+        context.delete(mealToDelete)
+        
+        do {
+            try context.save()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        } catch let error as NSError {
+            print("Error: \(error.localizedDescription); userInfo: \(error.userInfo)")
+        }
+    }
+    
 }

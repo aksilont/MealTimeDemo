@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController {
 
+    var context: NSManagedObjectContext?
+    
     lazy var contentView: MainView = {
         return MainView(frame: .zero, delegate: self)
     }()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A4228D526667E2600683DCC /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4228D426667E2600683DCC /* CoreDataStack.swift */; };
 		7A9ACAAD26621C7B00991E8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ACAAC26621C7B00991E8E /* AppDelegate.swift */; };
 		7A9ACAAF26621C7B00991E8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ACAAE26621C7B00991E8E /* SceneDelegate.swift */; };
 		7A9ACAB126621C7B00991E8E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ACAB026621C7B00991E8E /* MainViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A4228D426667E2600683DCC /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		7A9ACAA926621C7A00991E8E /* MealTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9ACAAC26621C7B00991E8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A9ACAAE26621C7B00991E8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A4228D226667E1300683DCC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7A4228D326667E1700683DCC /* Core Data */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		7A4228D326667E1700683DCC /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				7A4228D426667E2600683DCC /* CoreDataStack.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		7A9ACAA026621C7A00991E8E = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +74,7 @@
 		7A9ACAAB26621C7A00991E8E /* MealTime */ = {
 			isa = PBXGroup;
 			children = (
+				7A4228D226667E1300683DCC /* Core */,
 				7A9ACAC126621D2E00991E8E /* App */,
 				7A9ACAC226621D3200991E8E /* Resources */,
 				7A9ACAC326621D3E00991E8E /* Environments */,
@@ -190,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A4228D526667E2600683DCC /* CoreDataStack.swift in Sources */,
 				7A9ACAB126621C7B00991E8E /* MainViewController.swift in Sources */,
 				7A9ACAC6266220C100991E8E /* MainView.swift in Sources */,
 				7A9ACAAD26621C7B00991E8E /* AppDelegate.swift in Sources */,

@@ -10,13 +10,14 @@ import CoreData
 
 class MainViewController: UIViewController {
 
-    var context: NSManagedObjectContext?
+    var context: NSManagedObjectContext!
     
     lazy var contentView: MainView = {
         return MainView(frame: .zero, delegate: self)
     }()
     
     var array = [Date]()
+    var person: Person!
     
     lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -35,6 +36,43 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        fetchData(with: "Max")
+    }
+    
+    private func fetchData(with personName: String) {
+        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name == %@", personName)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            if results.isEmpty {
+                person = Person(context: context)
+                person.name = personName
+                try context.save()
+            } else {
+                person = results.first
+            }
+        } catch let error as NSError {
+            print(error.userInfo)
+        }
+    }
+    
+    private func addNewMeal(with date: Date) {
+        // Old record:
+        // let entity = NSEntityDescription.entity(forEntityName: "Meal", in: context)
+        // let newMeal = NSManagedObject(entity: entity!, insertInto: context) as! Meal
+        let newMeal = Meal(context: context)
+        newMeal.date = date
+        
+        let meals = person.meals?.mutableCopy() as? NSMutableOrderedSet
+        meals?.add(newMeal)
+        person.meals = meals
+        
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Error: \(error.localizedDescription); userInfo: \(error.userInfo)")
+        }
     }
     
     private func setupUI() {
@@ -45,8 +83,7 @@ class MainViewController: UIViewController {
     }
 
     @objc private func addNewTime() {
-        let date = Date()
-        array.append(date)
+        addNewMeal(with: Date())
         contentView.reloadData()
     }
     
@@ -61,15 +98,19 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        guard let meals = person.meals else { return 1 }
+        return meals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let date = array[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        guard let meal = person.meals?[indexPath.row] as? Meal, let mealDate = meal.date else { return cell }
+        
         var contentConfguration = cell.defaultContentConfiguration()
-        contentConfguration.text = dateFormatter.string(from: date)
+        contentConfguration.text = dateFormatter.string(from: mealDate)
         cell.contentConfiguration = contentConfguration
+        
         return cell
     }
     
